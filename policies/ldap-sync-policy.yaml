@@ -1,0 +1,29 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-ldap-group
+  namespace: ldap-sync-policies
+spec:
+  complianceType: mustonlyhave
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+  - objectDefinition:
+      apiVersion: policy.open-cluster-management.io/v1
+      kind: ConfigurationPolicy
+      metadata:
+        name: policy-ldap-group
+      spec:
+        object-templates:
+        - complianceType: mustonlyhave
+          objectDefinition:
+            apiVersion: user.openshift.io/v1
+            kind: Group
+            metadata:
+              name: container_users_AP
+            labels:
+              app.kubernetes.io/instance: ldap-sync-test
+            users:
+            - Prosenjit
+            - Harshil
+            - Alex  

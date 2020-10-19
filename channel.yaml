@@ -5,4 +5,4 @@ metadata:
   namespace: open-cluster-management
 spec:
   type: GitHub
-  pathname: https://github.com/harshil-redhat/acm-test.git
+  pathname: https://github.com/duttap06/acm-test.git
